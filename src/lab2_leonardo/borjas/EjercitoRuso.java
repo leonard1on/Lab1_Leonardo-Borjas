@@ -9,44 +9,52 @@ package lab2_leonardo.borjas;
  *
  * @author Leonardo Borjas
  */
-public class EjercitoAleman {
-    private String alias;
+public class EjercitoRuso {
+    private String nombre;
+    private int id;
     private int edad;
-    private String casta;
+    private String rango;
     private int resistencia;
     private String tipoarma;
     
-    public EjercitoAleman(){
+    
+    public EjercitoRuso(){
         
     }
-    public EjercitoAleman(String alias, int edad, String casta, int arma){
-        this.alias=alias;
+    public EjercitoRuso(String nombre, int id, int edad, String rango, int arma){
+        this.nombre=nombre;
+        this.id=id;
         this.edad=edad;
-        this.casta=casta;
+        this.rango=rango;
         this.resistencia=edad*8;
         switch(arma){
             case 1:
-                this.tipoarma="Subfusil MP 40";
+                this.tipoarma="AK-47";
                 break;
             case 2:
-                this.tipoarma="Ametralladora MG42";
+                this.tipoarma="Revolver Navant";
                 break;
             case 3:
-                this.tipoarma="Pistolas Walther P38";
+                this.tipoarma="RPG-7";
                 break;
         }
+        
     }
 
-    public String getAlias() {
-        return alias;
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public int getEdad() {
         return edad;
     }
 
-    public String getCasta() {
-        return casta;
+    public String getRango() {
+        return rango;
     }
 
     public int getResistencia() {
@@ -57,16 +65,20 @@ public class EjercitoAleman {
         return tipoarma;
     }
 
-    public void setAlias(String alias) {
-        this.alias = alias;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setEdad(int edad) {
         this.edad = edad;
     }
 
-    public void setCasta(String casta) {
-        this.casta = casta;
+    public void setRango(String rango) {
+        this.rango = rango;
     }
 
     public void setResistencia(int resistencia) {
@@ -79,11 +91,9 @@ public class EjercitoAleman {
 
     @Override
     public String toString() {
-        return "EjercitoAleman{" + "alias=" + alias + ", Edad=" + edad +
-                ", casta=" + casta + ", resistencia=" + resistencia + ", "
+        return "EjercitoRuso{" + "nombre=" + nombre + ", ID=" + id + ", edad=" +
+                edad + ", rango=" + rango + ", resistencia=" + resistencia + ", "
                 + "Tipo de Arma=" + tipoarma + '}';
     }
-    
-    
     
 }
