@@ -34,6 +34,7 @@ public class EjercitoAlumnos {
                 break;
             case 3:
                 this.tipoarma="Laptops";
+                break;
         }
     }
 
