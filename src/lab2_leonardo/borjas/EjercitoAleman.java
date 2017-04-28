@@ -15,6 +15,7 @@ public class EjercitoAleman {
     private String casta;
     private int resistencia;
     private String tipoarma;
+    private int poder;
     
     public EjercitoAleman(){
         
@@ -27,14 +28,21 @@ public class EjercitoAleman {
         switch(arma){
             case 1:
                 this.tipoarma="Subfusil MP 40";
+                this.poder=25;
                 break;
             case 2:
                 this.tipoarma="Ametralladora MG42";
+                this.poder=32;
                 break;
             case 3:
                 this.tipoarma="Pistolas Walther P38";
+                this.poder=11;
                 break;
         }
+    }
+
+    public int getPoder() {
+        return poder;
     }
 
     public String getAlias() {
@@ -75,6 +83,10 @@ public class EjercitoAleman {
 
     public void setTipoarma(String tipoarma) {
         this.tipoarma = tipoarma;
+    }
+
+    public void setPoder(int poder) {
+        this.poder = poder;
     }
 
     @Override

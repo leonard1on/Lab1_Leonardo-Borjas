@@ -20,7 +20,7 @@ public class Lab2_LeonardoBorjas {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int menu = 0, tipoarma = 0, opcion = 1;
+        int menu = 0, tipoarma = 0, opcion = 1, poder = 0;
         String arma = "";
         ArrayList ruso = new ArrayList();
         ArrayList aleman = new ArrayList();
@@ -102,13 +102,19 @@ public class Lab2_LeonardoBorjas {
                                     switch (tipoarma) {
                                         case 1:
                                             arma = "AK-47";
+                                            poder = 27;
+                                            break;
                                         case 2:
                                             arma = "Revolver Navant";
+                                            poder = 13;
+                                            break;
                                         case 3:
                                             arma = "RPG-7";
-
+                                            poder = 57;
+                                            break;
                                     }
                                     ((EjercitoRuso) ruso.get(espacio)).setTipoarma(arma);
+                                    ((EjercitoRuso) ruso.get(espacio)).setPoder(poder);
                                 }
                                 break;
                             case 3:
@@ -134,7 +140,7 @@ public class Lab2_LeonardoBorjas {
 
                         }
 
-                    } while (menu <=4);
+                    } while (menu <= 4);
 
                     break;
 //--------------------------------------------------------------------------------------
@@ -188,13 +194,20 @@ public class Lab2_LeonardoBorjas {
                                     switch (tipoarma) {
                                         case 1:
                                             arma = "Subfusil MP 40";
+                                            poder = 25;
+                                            break;
                                         case 2:
                                             arma = "Ametralladora MG42";
+                                            poder = 32;
+                                            break;
                                         case 3:
                                             arma = "Pistolas Walther P38";
+                                            poder = 11;
+                                            break;
 
                                     }
                                     ((EjercitoAleman) aleman.get(espacio)).setTipoarma(arma);
+                                    ((EjercitoAleman) aleman.get(espacio)).setPoder(poder);
                                 }
                                 break;
                             case 3:
@@ -218,7 +231,7 @@ public class Lab2_LeonardoBorjas {
                                 break;
                         }
 
-                    } while (menu <=4);
+                    } while (menu <= 4);
 
                     break;
 //------------------------------------------------------------------------------------
@@ -280,13 +293,17 @@ public class Lab2_LeonardoBorjas {
                                     switch (tipoarma) {
                                         case 1:
                                             arma = "Discos Duro";
+                                            poder = 23;
                                         case 2:
                                             arma = "Controles de Wii";
+                                            poder = 47;
                                         case 3:
                                             arma = "Laptops";
+                                            poder = 76;
 
                                     }
                                     ((EjercitoAlumnos) alumnos.get(espacio)).setTipoarma(arma);
+                                    ((EjercitoAlumnos) alumnos.get(espacio)).setPoder(poder);
                                 }
                                 break;
                             case 3:
@@ -309,17 +326,22 @@ public class Lab2_LeonardoBorjas {
                                 opcion = 4;
                                 break;
                         }
-                    } while (menu <=4);
+                    } while (menu <= 4);
 
                     break;
 //-----------------------------------------------------------------------------------------------
                 case 4:
                     for (int i = 0; i < ruso.size(); i++) {
                         if (ruso.get(i) instanceof EjercitoRuso) {
-                            int vidaenemiga=((EjercitoAleman)aleman.get(i)).getResistencia() ;
-                            System.out.println(vidaenemiga);
+                            int vidaenemiga = ((EjercitoAleman) aleman.get(i)).getResistencia();
+                            int ataque = ((EjercitoRuso) ruso.get(i)).getPoder();
+                            int restante = vidaenemiga - ataque;
+                            if (restante <= 0) {
+                                aleman.remove(i);
+                            }
                         }
                     }
+                    opcion=1;
                     break;
 
 //-----------------------------------------------------------------------------------------------                   

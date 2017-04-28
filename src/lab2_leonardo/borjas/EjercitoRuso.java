@@ -16,6 +16,7 @@ public class EjercitoRuso {
     private String rango;
     private int resistencia;
     private String tipoarma;
+    private int poder;
     
     
     public EjercitoRuso(){
@@ -30,15 +31,22 @@ public class EjercitoRuso {
         switch(arma){
             case 1:
                 this.tipoarma="AK-47";
+                this.poder=27;
                 break;
             case 2:
                 this.tipoarma="Revolver Navant";
+                this.poder=13;
                 break;
             case 3:
                 this.tipoarma="RPG-7";
+                this.poder=57;
                 break;
         }
         
+    }
+
+    public int getPoder() {
+        return poder;
     }
 
     public String getNombre() {
@@ -88,6 +96,11 @@ public class EjercitoRuso {
     public void setTipoarma(String tipoarma) {
         this.tipoarma = tipoarma;
     }
+
+    public void setPoder(int poder) {
+        this.poder = poder;
+    }
+    
 
     @Override
     public String toString() {

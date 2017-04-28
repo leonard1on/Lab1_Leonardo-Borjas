@@ -16,6 +16,7 @@ public class EjercitoAlumnos {
     private String grado;
     private int resistencia;
     private String tipoarma;
+    private int poder;
     EjercitoAlumnos(){
         
     }
@@ -28,14 +29,21 @@ public class EjercitoAlumnos {
         switch(arma){
             case 1: 
                 this.tipoarma="Discos Duros";
+                this.poder=23;
                 break;
             case 2:
                 this.tipoarma="Controles de Wii";
+                this.poder=47;
                 break;
             case 3:
                 this.tipoarma="Laptops";
+                this.poder=76;
                 break;
         }
+    }
+
+    public int getPoder() {
+        return poder;
     }
 
     public String getApodo() {
@@ -84,6 +92,10 @@ public class EjercitoAlumnos {
 
     public void setTipoarma(String tipoarma) {
         this.tipoarma = tipoarma;
+    }
+
+    public void setPoder(int poder) {
+        this.poder = poder;
     }
 
     @Override
