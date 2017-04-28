@@ -35,7 +35,8 @@ public class Lab2_LeonardoBorjas {
                                 + "2. Modificar datos del soldado\n"
                                 + "3. Dar de alta a un soldado\n"
                                 + "4. Mostrar soldados activos\n"
-                                + "5. Terminar turno");
+                                + "5. Terminar turno\n"
+                                + "6. Simulacion de batalla");
                         menu = sc.nextInt();
                         switch (menu) {
                             case 1:
@@ -123,14 +124,22 @@ public class Lab2_LeonardoBorjas {
                                         System.out.println(ruso.indexOf(t) + " " + ruso);
                                     }
                                 }
+                                break;
+                            case 5:
+                                opcion = 2;
+                                break;
+                            case 6:
+                                opcion = 4;
+                                break;
 
                         }
 
-                    } while (menu != 5);
-                    opcion = 2;
+                    } while (menu <=4);
+
                     break;
 //--------------------------------------------------------------------------------------
                 case 2:
+                    opcion = 3;
                     do {
                         System.out.println("*****Turno de los Alemanes*****\n"
                                 + "1. Reclutar soldados\n"
@@ -202,20 +211,27 @@ public class Lab2_LeonardoBorjas {
                                     }
                                 }
                                 break;
+                            case 5:
+                                break;
+                            case 6:
+                                opcion = 4;
+                                break;
                         }
 
-                    } while (menu != 5);
-                    opcion = 3;
+                    } while (menu <=4);
+
                     break;
 //------------------------------------------------------------------------------------
                 case 3:
+                    opcion = 1;
                     do {
                         System.out.println("*****Turno de los Alumnos de PrograII*****\n"
                                 + "1. Reclutar soldados\n"
                                 + "2. Modificar datos del soldado\n"
                                 + "3. Dar de alta a un soldado\n"
                                 + "4. Mostrar soldados activos\n"
-                                + "5. Terminar turno");
+                                + "5. Terminar turno\n"
+                                + "6. Simulacion de batalla");
                         menu = sc.nextInt();
                         switch (menu) {
                             case 1:
@@ -287,12 +303,23 @@ public class Lab2_LeonardoBorjas {
                                     }
                                 }
                                 break;
+                            case 5:
+                                break;
+                            case 6:
+                                opcion = 4;
+                                break;
                         }
-                    } while (menu != 5);
-                    opcion = 1;
+                    } while (menu <=4);
+
                     break;
 //-----------------------------------------------------------------------------------------------
                 case 4:
+                    for (int i = 0; i < ruso.size(); i++) {
+                        if (ruso.get(i) instanceof EjercitoRuso) {
+                            int vidaenemiga=((EjercitoAleman)aleman.get(i)).getResistencia() ;
+                            System.out.println(vidaenemiga);
+                        }
+                    }
                     break;
 
 //-----------------------------------------------------------------------------------------------                   
