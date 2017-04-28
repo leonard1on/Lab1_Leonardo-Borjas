@@ -100,7 +100,7 @@ public class EjercitoAlumnos {
 
     @Override
     public String toString() {
-        return "EjercitoAlumnos{" + "Apodo=" + apodo + ", cuenta=" + cuenta +
+        return "Soldado Alumnos{" + "Apodo=" + apodo + ", cuenta=" + cuenta +
                 ", Edad=" + edad + ", Grado=" + grado + ", resistencia=" +
                 resistencia + ", Tipo de Arma=" + tipoarma + '}';
     }

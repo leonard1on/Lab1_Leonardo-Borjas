@@ -20,11 +20,13 @@ public class Lab2_LeonardoBorjas {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int menu = 0, tipoarma = 0, opcion = 1, poder = 0;
+        int menu = 0, tipoarma = 0, opcion = 1, poder = 0, gane = 0;
         String arma = "";
         ArrayList ruso = new ArrayList();
         ArrayList aleman = new ArrayList();
         ArrayList alumnos = new ArrayList();
+        ArrayList muertos = new ArrayList();
+
 //------------------------------------------------------------------------------
         do {
             switch (opcion) {
@@ -152,7 +154,8 @@ public class Lab2_LeonardoBorjas {
                                 + "2. Modificar datos del soldado\n"
                                 + "3. Dar de alta a un soldado\n"
                                 + "4. Mostrar soldados activos\n"
-                                + "5. Terminar turno");
+                                + "5. Terminar turno\n"
+                                + "6. Simulacion de Batalla");
                         menu = sc.nextInt();
                         switch (menu) {
                             case 1:
@@ -331,22 +334,140 @@ public class Lab2_LeonardoBorjas {
                     break;
 //-----------------------------------------------------------------------------------------------
                 case 4:
-                    for (int i = 0; i < ruso.size(); i++) {
-                        if (ruso.get(i) instanceof EjercitoRuso) {
-                            int vidaenemiga = ((EjercitoAleman) aleman.get(i)).getResistencia();
-                            int ataque = ((EjercitoRuso) ruso.get(i)).getPoder();
-                            int restante = vidaenemiga - ataque;
-                            if (restante <= 0) {
-                                aleman.remove(i);
+                    //1-2
+                    if (ruso.isEmpty() || aleman.isEmpty()) {
+                    } else {
+                        for (int i = 0; i < ruso.size(); i++) {
+                            if (ruso.get(i) instanceof EjercitoRuso) {
+                                int vidaenemiga = ((EjercitoAleman) aleman.get(i)).getResistencia();
+                                int ataque = ((EjercitoRuso) ruso.get(i)).getPoder();
+                                int restante = vidaenemiga - ataque;
+                                if (restante <= 0) {
+                                    muertos.add(((EjercitoAleman) aleman.get(i)).getAlias() + "-Ejercito Aleman");
+                                    aleman.remove(i);
+                                }
                             }
                         }
                     }
-                    opcion=1;
+                    
+                    //1-3
+                    if (ruso.isEmpty() || alumnos.isEmpty()) {
+                    } else {
+                        for (int i = 0; i < ruso.size(); i++) {
+                            if (ruso.get(i) instanceof EjercitoRuso) {
+                                int vidaenemiga = ((EjercitoAlumnos) alumnos.get(i)).getResistencia();
+                                int ataque = ((EjercitoRuso) ruso.get(i)).getPoder();
+                                int restante = vidaenemiga - ataque;
+                                if (restante <= 0) {
+                                    muertos.add(((EjercitoAlumnos) alumnos.get(i)).getApodo() + "-Ejercito Alumnos de PrograII");
+                                    alumnos.remove(i);
+                                }
+                            }
+                        }
+                    }
+                    
+                    //2-3
+                    if (aleman.isEmpty() || alumnos.isEmpty()) {
+                    } else {
+                        for (int i = 0; i < ruso.size(); i++) {
+                            if (aleman.get(i) instanceof EjercitoRuso) {
+                                int vidaenemiga = ((EjercitoAlumnos) alumnos.get(i)).getResistencia();
+                                int ataque = ((EjercitoAleman) aleman.get(i)).getPoder();
+                                int restante = vidaenemiga - ataque;
+                                if (restante <= 0) {
+                                    muertos.add(((EjercitoAlumnos) alumnos.get(i)).getApodo() + "-Ejercito Alumnos de PrograII");
+                                    alumnos.remove(i);
+                                }
+                            }
+                        }
+                    }
+                    //2-1
+                    if (aleman.isEmpty() || ruso.isEmpty()) {
+                    } else {
+                        for (int i = 0; i < aleman.size(); i++) {
+                            if (aleman.get(i) instanceof EjercitoAleman) {
+                                int vidaenemiga = ((EjercitoRuso) ruso.get(i)).getResistencia();
+                                int ataque = ((EjercitoAleman) aleman.get(i)).getPoder();
+                                int restante = vidaenemiga - ataque;
+                                if (restante <= 0) {
+                                    muertos.add(((EjercitoRuso) aleman.get(i)).getNombre() + "-Ejercito Ruso");
+                                    aleman.remove(i);
+                                }
+                            }
+                        }
+                    }
+                    
+                    //3-1
+                    if (ruso.isEmpty() || alumnos.isEmpty()) {
+                    } else {
+                        for (int i = 0; i < alumnos.size(); i++) {
+                            if (alumnos.get(i) instanceof EjercitoAlumnos) {
+                                int vidaenemiga = ((EjercitoRuso) ruso.get(i)).getResistencia();
+                                int ataque = ((EjercitoAlumnos) alumnos.get(i)).getPoder();
+                                int restante = vidaenemiga - ataque;
+                                if (restante <= 0) {
+                                    muertos.add(((EjercitoRuso) ruso.get(i)).getNombre() + "-Ejercito Ruso");
+                                    ruso.remove(i);
+                                }
+                            }
+                        }
+                    }
+                    //3-2
+                    if (alumnos.isEmpty() || aleman.isEmpty()) {
+                    } else {
+                        for (int i = 0; i < alumnos.size(); i++) {
+                            if (alumnos.get(i) instanceof EjercitoAlumnos) {
+                                int vidaenemiga = ((EjercitoAleman) aleman.get(i)).getResistencia();
+                                int ataque = ((EjercitoAlumnos) alumnos.get(i)).getPoder();
+                                int restante = vidaenemiga - ataque;
+                                if (restante <= 0) {
+                                    muertos.add(((EjercitoAleman) aleman.get(i)).getAlias() + "-Ejercito Aleman");
+                                    aleman.remove(i);
+                                }
+                            }
+                        }
+                    }
+                    
+                    
+                    opcion = 1;
+                    if (aleman.isEmpty() && alumnos.isEmpty() && ruso.isEmpty()) {
+                        opcion = 5;
+                        gane = 0;
+                    } else {
+                        if (aleman.isEmpty() && alumnos.isEmpty()) {
+                            opcion = 5;
+                            gane = 1;
+                        }
+                        if (ruso.isEmpty() && alumnos.isEmpty()) {
+                            opcion = 5;
+                            gane = 2;
+                        }
+                        if (aleman.isEmpty() && ruso.isEmpty()) {
+                            opcion = 5;
+                            gane = 3;
+                        }
+                    }
                     break;
 
 //-----------------------------------------------------------------------------------------------                   
             }
         } while (opcion != 5);
+        switch (gane) {
+            case 1:
+                System.out.println("Ganan los Rusos");
+                break;
+            case 2:
+                System.out.println("Ganan los Alemanes");
+                break;
+            case 3:
+                System.out.println("Ganan los Alumnos de PrograII");
+                break;
+            default:
+                System.out.println("Empate");
+                break;
+        }
+        System.out.println("*****MUERTOS EN COMBATE******");
+        System.out.println(muertos);
     }
 
 }

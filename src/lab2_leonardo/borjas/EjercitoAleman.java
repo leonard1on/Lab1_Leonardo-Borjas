@@ -91,7 +91,7 @@ public class EjercitoAleman {
 
     @Override
     public String toString() {
-        return "EjercitoAleman{" + "alias=" + alias + ", Edad=" + edad +
+        return "Soldado Aleman{" + "alias=" + alias + ", Edad=" + edad +
                 ", casta=" + casta + ", resistencia=" + resistencia + ", "
                 + "Tipo de Arma=" + tipoarma + '}';
     }
